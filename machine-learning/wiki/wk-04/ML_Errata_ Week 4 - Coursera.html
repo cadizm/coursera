@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://share.coursera.org/wiki/index.php/ML:Errata:_Week_4 -->
+<html lang="en" dir="ltr" class="client-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ML:Errata: Week 4 - Coursera</title>
+<meta charset="UTF-8">
+<meta name="generator" content="MediaWiki 1.18.1">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="https://share.coursera.org/wiki/index.php?title=ML:Errata:_Week_4&amp;action=edit">
+<link rel="edit" title="Edit" href="https://share.coursera.org/wiki/index.php?title=ML:Errata:_Week_4&amp;action=edit">
+<link rel="shortcut icon" href="https://share.coursera.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="https://share.coursera.org/wiki/opensearch_desc.php" title="Coursera (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://share.coursera.org/wiki/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="Coursera Atom feed" href="https://share.coursera.org/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="./ML_Errata_ Week 4 - Coursera_files/load.php">
+<link rel="stylesheet" href="./ML_Errata_ Week 4 - Coursera_files/load(1).php">
+<link rel="stylesheet" href="./ML_Errata_ Week 4 - Coursera_files/print.css" media="print">
+<link rel="stylesheet" href="./ML_Errata_ Week 4 - Coursera_files/cavendish.css" media="screen">
+<!--[if lt IE 5.5000]><link rel="stylesheet" href="/wiki/skins/cavendish/IE50Fixes.css?303" media="screen" /><![endif]-->
+<!--[if IE 5.5000]><link rel="stylesheet" href="/wiki/skins/cavendish/IE55Fixes.css?303" media="screen" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" href="/wiki/skins/cavendish/IE60Fixes.css?303" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/wiki/skins/cavendish/IE70Fixes.css?303" media="screen" /><![endif]-->
+<link rel="stylesheet" href="./ML_Errata_ Week 4 - Coursera_files/bootstrap-wrapped.css" media="screen"><style>#header h6 a { background: transparent no-repeat; width:322px;height:53px;}</style><link type="text/css" media="all" rel="stylesheet" href="./ML_Errata_ Week 4 - Coursera_files/jquery.makeCollapsible.css"><link type="text/css" media="all" rel="stylesheet" href="./ML_Errata_ Week 4 - Coursera_files/jquery.messageBox.css"><meta name="ResourceLoaderDynamicStyles" content="">
+<style>a:lang(ar), a:lang(ckb), a:lang(fa),a:lang(kk-arab), a:lang(mzn), a:lang(ps), a:lang(ur) { text-decoration: none; }
+a.new, #quickbar a.new { color: #ba0000; }
+
+</style>
+<script src="./ML_Errata_ Week 4 - Coursera_files/load(2).php"></script><script src="./ML_Errata_ Week 4 - Coursera_files/load(3).php"></script>
+<script>if(window.mw){
+	mw.config.set({"wgCanonicalNamespace": "ML", "wgCanonicalSpecialPageName": false, "wgNamespaceNumber": 518, "wgPageName": "ML:Errata:_Week_4", "wgTitle": "Errata: Week 4", "wgCurRevisionId": 32974, "wgArticleId": 3045, "wgIsArticle": true, "wgAction": "view", "wgUserName": "D4c40cd6a835d9f4232f780566da9949", "wgUserGroups": ["*", "user", "autoconfirmed"], "wgCategories": ["ML:Errata"], "wgBreakFrames": false, "wgRestrictionEdit": [], "wgRestrictionMove": []});
+}
+</script><script>if(window.mw){
+	mw.loader.load(["mediawiki.page.startup"]);
+}
+</script><script type="text/javascript" src="./ML_Errata_ Week 4 - Coursera_files/load(4).php"></script><script type="text/javascript" src="./ML_Errata_ Week 4 - Coursera_files/jquery.client.js"></script><script type="text/javascript" src="./ML_Errata_ Week 4 - Coursera_files/mediawiki.page.startup.js"></script>
+<style type="text/css">#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-family: serif; font-style: normal; font-size: 90%}
+.MathJax_Preview {color: #888888}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-family: serif; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; border: 0; padding: 0; margin: 0}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0 !important; padding: 0 !important; margin: 0 !important; vertical-align: 0 !important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap}
+.MathJax img {display: inline ! important}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax .MathJax_HitBox {cursor: text}
+#MathJax_Tooltip * {filter: none; background: transparent}
+#MathJax_getScales {font-family: STIXGeneral,STIXNonUnicode,STIXSizeOneSym}
+.MathJax .math span {font-family: STIXGeneral,STIXNonUnicode,STIXSizeOneSym}
+</style></head>
+<body class="mediawiki ltr sitedir-ltr ns-518 ns-subject page-ML_Errata_Week_4 action-view skin-cavendish"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+<div id="topbar">
+    <div class="topbar-inner">
+        <div class="container-fluid">
+            <a target="_new" href="http://www.coursera.org/" class="brand">Coursera <span style="background-color:#387690;padding-top:100px" class="label warning">Beta</span></a>
+            <ul class="nav secondary-nav">
+                <li style="padding: 10px 10px 11px; color:#BFBFBF; font-size:14px; border-right: solid 1px #333">Michael Cadiz </li>
+                <li><a href="https://www.coursera.org/landing/contact.php">Contact Us</a></li>
+                <li><a href="https://share.coursera.org/wiki/index.php/Special:Contributions/D4c40cd6a835d9f4232f780566da9949">
+		             My Contributions</a></li>
+                <li><a href="https://share.coursera.org/wiki/index.php?title=Special:UserLogout&amp;returnto=ML%3AErrata%3A+Week+4">
+		             Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="internal"></div>
+<!-- Skin-Version: 1.2.0 + Coursera -->
+<div id="globalWrapper">
+
+	<div id="p-personal" class="portlet">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+                        			
+			</ul>
+		</div>
+	</div>
+
+	<div id="header">
+		<a name="top" id="contentTop"></a>
+		<h6>
+		<a href="https://share.coursera.org/wiki/index.php/Main_Page" title="Main Page">ML:Errata: Week 4 - Coursera</a></h6>
+		<div id="p-cactions" class="portlet"><ul>
+    
+                 <li id="ca-nstab-ml" class="selected"><a href="./ML_Errata_ Week 4 - Coursera_files/ML_Errata_ Week 4 - Coursera.html">ML</a></li>
+                 <li id="ca-edit"><a href="https://share.coursera.org/wiki/index.php?title=ML:Errata:_Week_4&amp;action=edit" title="You can edit this page. Please use the preview button before saving">Edit</a></li>
+                 <li id="ca-history"><a href="https://share.coursera.org/wiki/index.php?title=ML:Errata:_Week_4&amp;action=history" title="Past revisions of this page">History</a></li>            </ul></div>
+				<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="https://share.coursera.org/wiki/index.php" id="searchform">
+				<input type="hidden" name="title" value="Special:Search">
+				<input type="search" name="search" title="Search Coursera [ctrl-option-f]" accesskey="f" id="searchInput">
+				<input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchGoButton" class="searchButton">&nbsp;
+				<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton">
+			</form>
+		</div>
+	</div>
+	</div>
+
+	<div id="mBody">
+	
+		<div id="side">
+			<div id="nav">
+	<div class="generated-sidebar portlet" id="p-Navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage-description"><a href="https://share.coursera.org/wiki/index.php/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+				<li id="n-recentchanges"><a href="https://share.coursera.org/wiki/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-help"><a href="https://share.coursera.org/wiki/index.php/Help:Editing" title="The place to find out">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-Courses">
+		<h5>Courses</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-List-of-courses"><a href="https://share.coursera.org/wiki/index.php/Courses">List of courses</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-Contribute">
+		<h5>Contribute</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-Video-Subtitles"><a href="https://share.coursera.org/wiki/index.php/Video_Subtitles">Video Subtitles</a></li>
+				<li id="n-Third-party-Tools"><a href="https://share.coursera.org/wiki/index.php/Third-party_Tools">Third-party Tools</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-upload"><a href="https://share.coursera.org/wiki/index.php/Special:Upload" title="Upload files [u]" accesskey="u">Upload file</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+		</div><!-- end of SIDE div -->
+		<div id="column-content">
+			<div id="content"><div id="mw-js-message" class="js-messagebox" style="display: none;"></div>
+				<a id="top"></a>
+	        		        	<h1 id="firstHeading" class="firstHeading">ML:Errata: Week 4</h1>
+				<div id="bodyContent">
+		            <h3 id="siteSub">From Coursera</h3>
+		            <div id="contentSub"></div>
+		            		            		            <div id="jump-to-nav">Jump to: <a href="https://share.coursera.org/wiki/index.php/ML:Errata:_Week_4#column-one">navigation</a>, <a href="https://share.coursera.org/wiki/index.php/ML:Errata:_Week_4#searchInput">search</a></div>					<!-- start content -->
+					<div lang="en" dir="ltr" class="mw-content-ltr"><p>It would seem there is a typo in section 1.3.2 "Vectorizing the gradient" in the series of entries demonstrating how to compute the partial derivatives for all <span class="MathJax_Preview" style="display: none;"></span><span class="MathJax" role="textbox" aria-readonly="true"><nobr><span class="math" id="MathJax-Span-1"><span style="display: inline-block; position: relative; width: 0.938em; height: 0px; font-size: 120%;"><span style="position: absolute; top: -2.563em; left: 0em; clip: rect(1.697em 1000em 3.046em -0.535em);"><span class="mrow" id="MathJax-Span-2"><span class="msubsup" id="MathJax-Span-3"><span style="display: inline-block; position: relative; width: 0.9em; height: 0px;"><span style="position: absolute; top: -2.563em; left: 0em; clip: rect(1.697em 1000em 2.761em -0.535em);"><span class="mi" id="MathJax-Span-4" style="font-family: STIXGeneral; font-style: italic;">θ</span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span><span style="position: absolute; top: -2.413em; left: 0.575em;"><span class="mi" id="MathJax-Span-5" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">j</span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span></span><span style="border-left-width: 0em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.169em; vertical-align: -0.356em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-1"> \theta_j</script> where <span class="MathJax_Preview" style="display: none;"></span><span class="MathJax" role="textbox" aria-readonly="true"><nobr><span class="math" id="MathJax-Span-6"><span style="display: inline-block; position: relative; width: 3.688em; height: 0px; font-size: 120%;"><span style="position: absolute; top: -2.563em; left: 0em; clip: rect(1.692em 1000em 2.956em -0.543em);"><span class="mrow" id="MathJax-Span-7"><span class="msubsup" id="MathJax-Span-8"><span style="display: inline-block; position: relative; width: 0.962em; height: 0px;"><span style="position: absolute; top: -2.563em; left: 0em; clip: rect(1.692em 1000em 2.759em -0.543em);"><span class="mi" id="MathJax-Span-9" style="font-family: STIXGeneral; font-style: italic;">h</span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span><span style="position: absolute; top: -2.413em; left: 0.575em;"><span class="mi" id="MathJax-Span-10" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">θ</span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span></span></span><span class="mo" id="MathJax-Span-11" style="font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-12" style="font-family: STIXGeneral; font-style: italic;">x</span><span class="mo" id="MathJax-Span-13" style="font-family: STIXGeneral;">)</span><span class="mo" id="MathJax-Span-14" style="font-family: STIXGeneral; padding-left: 0.25em;">−</span><span class="mi" id="MathJax-Span-15" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.25em;">y</span></span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span></span><span style="border-left-width: 0em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.067em; vertical-align: -0.247em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-2">h_\theta(x) - y</script> is defined. </p>
+<p>The last row in the array has <span class="MathJax_Preview" style="display: none;"></span><span class="MathJax" role="textbox" aria-readonly="true"><nobr><span class="math" id="MathJax-Span-16"><span style="display: inline-block; position: relative; width: 5.875em; height: 0px; font-size: 120%;"><span style="position: absolute; top: -2.563em; left: 0em; clip: rect(1.534em 1000em 2.956em -0.543em);"><span class="mrow" id="MathJax-Span-17"><span class="msubsup" id="MathJax-Span-18"><span style="display: inline-block; position: relative; width: 0.962em; height: 0px;"><span style="position: absolute; top: -2.563em; left: 0em; clip: rect(1.692em 1000em 2.759em -0.543em);"><span class="mi" id="MathJax-Span-19" style="font-family: STIXGeneral; font-style: italic;">h</span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span><span style="position: absolute; top: -2.413em; left: 0.575em;"><span class="mi" id="MathJax-Span-20" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">θ</span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span></span></span><span class="mo" id="MathJax-Span-21" style="font-family: STIXGeneral;">(</span><span class="msubsup" id="MathJax-Span-22"><span style="display: inline-block; position: relative; width: 1.462em; height: 0px;"><span style="position: absolute; top: -2.563em; left: 0em; clip: rect(1.934em 1000em 2.761em -0.59em);"><span class="mi" id="MathJax-Span-23" style="font-family: STIXGeneral; font-style: italic;">x</span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span><span style="position: absolute; top: -2.925em; left: 0.512em;"><span class="texatom" id="MathJax-Span-24"><span class="mrow" id="MathJax-Span-25"><span class="mo" id="MathJax-Span-26" style="font-size: 70.7%; font-family: STIXGeneral;">(</span><span class="mn" id="MathJax-Span-27" style="font-size: 70.7%; font-family: STIXGeneral;">1</span><span class="mo" id="MathJax-Span-28" style="font-size: 70.7%; font-family: STIXGeneral;">)</span></span></span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span></span></span><span class="mo" id="MathJax-Span-29" style="font-family: STIXGeneral;">)</span><span class="mo" id="MathJax-Span-30" style="font-family: STIXGeneral; padding-left: 0.25em;">−</span><span class="msubsup" id="MathJax-Span-31" style="padding-left: 0.25em;"><span style="display: inline-block; position: relative; width: 1.587em; height: 0px;"><span style="position: absolute; top: -2.563em; left: 0em; clip: rect(1.934em 1000em 2.956em -0.587em);"><span class="mi" id="MathJax-Span-32" style="font-family: STIXGeneral; font-style: italic;">y</span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span><span style="position: absolute; top: -2.925em; left: 0.512em;"><span class="texatom" id="MathJax-Span-33"><span class="mrow" id="MathJax-Span-34"><span class="mo" id="MathJax-Span-35" style="font-size: 70.7%; font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-36" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">m</span><span class="mo" id="MathJax-Span-37" style="font-size: 70.7%; font-family: STIXGeneral;">)</span></span></span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span></span><span style="border-left-width: 0em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.256em; vertical-align: -0.247em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-3">h_\theta(x^{(1)}) - y^{(m)}</script> but I believe this should be <span class="MathJax_Preview" style="display: none;"></span><span class="MathJax" role="textbox" aria-readonly="true"><nobr><span class="math" id="MathJax-Span-38"><span style="display: inline-block; position: relative; width: 5.938em; height: 0px; font-size: 120%;"><span style="position: absolute; top: -2.563em; left: 0em; clip: rect(1.534em 1000em 2.956em -0.543em);"><span class="mrow" id="MathJax-Span-39"><span class="msubsup" id="MathJax-Span-40"><span style="display: inline-block; position: relative; width: 0.962em; height: 0px;"><span style="position: absolute; top: -2.563em; left: 0em; clip: rect(1.692em 1000em 2.759em -0.543em);"><span class="mi" id="MathJax-Span-41" style="font-family: STIXGeneral; font-style: italic;">h</span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span><span style="position: absolute; top: -2.413em; left: 0.575em;"><span class="mi" id="MathJax-Span-42" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">θ</span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span></span></span><span class="mo" id="MathJax-Span-43" style="font-family: STIXGeneral;">(</span><span class="msubsup" id="MathJax-Span-44"><span style="display: inline-block; position: relative; width: 1.587em; height: 0px;"><span style="position: absolute; top: -2.563em; left: 0em; clip: rect(1.934em 1000em 2.761em -0.59em);"><span class="mi" id="MathJax-Span-45" style="font-family: STIXGeneral; font-style: italic;">x</span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span><span style="position: absolute; top: -2.925em; left: 0.512em;"><span class="texatom" id="MathJax-Span-46"><span class="mrow" id="MathJax-Span-47"><span class="mo" id="MathJax-Span-48" style="font-size: 70.7%; font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-49" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">m</span><span class="mo" id="MathJax-Span-50" style="font-size: 70.7%; font-family: STIXGeneral;">)</span></span></span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span></span></span><span class="mo" id="MathJax-Span-51" style="font-family: STIXGeneral;">)</span><span class="mo" id="MathJax-Span-52" style="font-family: STIXGeneral; padding-left: 0.25em;">−</span><span class="msubsup" id="MathJax-Span-53" style="padding-left: 0.25em;"><span style="display: inline-block; position: relative; width: 1.587em; height: 0px;"><span style="position: absolute; top: -2.563em; left: 0em; clip: rect(1.934em 1000em 2.956em -0.587em);"><span class="mi" id="MathJax-Span-54" style="font-family: STIXGeneral; font-style: italic;">y</span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span><span style="position: absolute; top: -2.925em; left: 0.512em;"><span class="texatom" id="MathJax-Span-55"><span class="mrow" id="MathJax-Span-56"><span class="mo" id="MathJax-Span-57" style="font-size: 70.7%; font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-58" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">m</span><span class="mo" id="MathJax-Span-59" style="font-size: 70.7%; font-family: STIXGeneral;">)</span></span></span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.563em;"></span></span></span><span style="border-left-width: 0em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.256em; vertical-align: -0.247em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-4">h_\theta(x^{(m)}) - y^{(m)}</script></p>
+<p></p>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 1/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key crowdwiki:pcache:idhash:3045-0!*!*!*!*!*!* and timestamp 20151225203041 -->
+</div><div class="printfooter">
+Retrieved from "<a href="https://share.coursera.org/wiki/index.php?title=ML:Errata:_Week_4&amp;oldid=32974">https://share.coursera.org/wiki/index.php?title=ML:Errata:_Week_4&amp;oldid=32974</a>"</div>
+					<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="https://share.coursera.org/wiki/index.php/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="https://share.coursera.org/wiki/index.php/Category:ML:Errata" title="Category:ML:Errata">ML:Errata</a></li></ul></div></div>					<!-- end content -->
+									</div>
+			</div><!-- end of MAINCONTENT div -->	
+		</div>
+	
+	</div><!-- end of MBODY div -->
+	<div class="visualClear"></div>
+	<div id="footer">
+		<table style="width:100%;text-align:center;">
+			<tbody><tr>
+				<td rowspan="2" style="width:5%;text-align:center;vertical-align:top;padding-right:1em;white-space:nowrap">
+						</td>
+				<td align="center">
+			<ul id="f-list">
+					<li id="f-lastmod"> This page was last modified on 20 December 2015, at 21:26.</li>
+					<li id="f-viewcount">This page has been accessed 1,763 times.</li>
+					<li id="f-privacy"><a href="https://share.coursera.org/wiki/index.php/Coursera:Privacy_policy" title="Coursera:Privacy policy">Privacy policy</a></li>
+					<li id="f-about"><a href="https://share.coursera.org/wiki/index.php/Coursera:About" title="Coursera:About">About Coursera</a></li>
+					<li id="f-disclaimer"><a href="https://share.coursera.org/wiki/index.php/Coursera:General_disclaimer" title="Coursera:General disclaimer">Disclaimers</a></li>
+</ul></td>
+				<td rowspan="2" style="width:5%;text-align:center;vertical-align:top;padding-left:1em;white-space:nowrap"><div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="./ML_Errata_ Week 4 - Coursera_files/poweredby_mediawiki_88x31.png" height="31" width="88" alt="Powered by MediaWiki"></a></div></td>
+			</tr>
+			<tr>
+				<td><div id="skin-info">
+					Mozilla Cavendish Theme based on Cavendish style by Gabriel Wicke modified by <a href="http://www.dasch-tour.de/" target="_blank">DaSch</a><br>
+					<a href="http://sourceforge.net/projects/wecowi/">Sourceforge Projectpage</a> – <a href="https://sourceforge.net/apps/trac/wecowi/wiki">Bug Reports</a> – Skin-Version: 1.2.0				</div></td>
+			</tr>
+		</tbody></table>
+	</div><!-- end of the FOOTER div -->
+</div><!-- end of the CONTAINER div -->
+<!-- scripts and debugging information -->
+<script>if(window.mw){
+	mw.loader.load(["mediawiki.user", "mediawiki.util", "mediawiki.page.ready", "mediawiki.legacy.wikibits", "mediawiki.legacy.ajax", "mediawiki.action.watch.ajax"]);
+}
+</script><script type="text/javascript" src="./ML_Errata_ Week 4 - Coursera_files/load(5).php"></script><script type="text/javascript" src="./ML_Errata_ Week 4 - Coursera_files/jquery.checkboxShiftClick.js"></script><script type="text/javascript" src="./ML_Errata_ Week 4 - Coursera_files/jquery.cookie.js"></script><script type="text/javascript" src="./ML_Errata_ Week 4 - Coursera_files/jquery.makeCollapsible.js"></script><script type="text/javascript" src="./ML_Errata_ Week 4 - Coursera_files/jquery.messageBox.js"></script><script type="text/javascript" src="./ML_Errata_ Week 4 - Coursera_files/jquery.mwPrototypes.js"></script><script type="text/javascript" src="./ML_Errata_ Week 4 - Coursera_files/jquery.placeholder.js"></script><script type="text/javascript" src="./ML_Errata_ Week 4 - Coursera_files/mediawiki.action.watch.ajax.js"></script><script type="text/javascript" src="./ML_Errata_ Week 4 - Coursera_files/mediawiki.language.js"></script><script type="text/javascript" src="./ML_Errata_ Week 4 - Coursera_files/mediawiki.user.js"></script><script type="text/javascript" src="./ML_Errata_ Week 4 - Coursera_files/mediawiki.util.js"></script><script type="text/javascript" src="./ML_Errata_ Week 4 - Coursera_files/wikibits.js"></script><script type="text/javascript" src="./ML_Errata_ Week 4 - Coursera_files/ajax.js"></script><script type="text/javascript" src="./ML_Errata_ Week 4 - Coursera_files/mediawiki.page.ready.js"></script>
+<script src="./ML_Errata_ Week 4 - Coursera_files/MathJax.js"></script>
+<script>if(window.mw){
+	mw.user.options.set({"ccmeonemails": 0, "cols": 80, "date": "default", "diffonly": 0, "disablemail": 0, "disablesuggest": 0, "editfont": "default", "editondblclick": 0, "editsection": 1, "editsectiononrightclick": 0, "enotifminoredits": 0, "enotifrevealaddr": 0, "enotifusertalkpages": 1, "enotifwatchlistpages": 0, "extendwatchlist": 0, "externaldiff": 0, "externaleditor": 0, "fancysig": 0, "forceeditsummary": 0, "gender": "unknown", "hideminor": 0, "hidepatrolled": 0, "highlightbroken": 1, "imagesize": 2, "justify": 0, "math": 1, "minordefault": 0, "newpageshidepatrolled": 0, "nocache": 0, "noconvertlink": 0, "norollbackdiff": 0, "numberheadings": 0, "previewonfirst": 0, "previewontop": 1, "quickbar": 5, "rcdays": 7, "rclimit": 50, "rememberpassword": 0, "rows": 25, "searchlimit": 20, "showhiddencats": 0, "showjumplinks": 1, "shownumberswatching": 1, "showtoc": 1, "showtoolbar": 1, "skin": "cavendish", "stubthreshold": 0, "thumbsize": 2, "underline": 2, "uselivepreview": 0, "usenewrc": 0, "watchcreations": 0, "watchdefault": 0, "watchdeletion": 0, "watchlistdays": 3, "watchlisthideanons": 0, "watchlisthidebots": 0, "watchlisthideliu": 0, "watchlisthideminor": 0, "watchlisthideown": 0, "watchlisthidepatrolled": 0, "watchmoves": 0, "wllimit": 250, "openid-hide": 0, "openid-update-on-login-nickname": false, "openid-update-on-login-email": false, "openid-update-on-login-fullname": false, "openid-update-on-login-language": false, "openid-update-on-login-timezone": false, "variant": "en", "language": "en", "searchNs0": true, "searchNs1": false, "searchNs2": false, "searchNs3": false, "searchNs4": false, "searchNs5": false, "searchNs6": false, "searchNs7": false, "searchNs8": false, "searchNs9": false, "searchNs10": false, "searchNs11": false, "searchNs12": false, "searchNs13": false, "searchNs14": false, "searchNs15": false, "searchNs500": true, "searchNs502": true, "searchNs504": true, "searchNs506": true, "searchNs508": true, "searchNs510": true, "searchNs512": true, "searchNs514": true, "searchNs516": true, "searchNs518": true});
+	;
+	mw.loader.state({"user.options": "ready"});
+}
+</script><script>if(window.mw){
+	mw.user.tokens.set({"editToken": "4ce3421622c29420ef6870bf29015103+\\", "watchToken": "82618699b61a38ccafd71076920e7cd8+\\"});
+	;
+	mw.loader.state({"user.tokens": "ready"});
+}
+</script><!-- Served in 0.034 secs. --><div style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: STIXSizeOneSym, sans-serif;">ˆ</div></body></html>
