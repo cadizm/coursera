@@ -21,18 +21,22 @@ struct DisjointSets {
   }
 
   int getParent(int table) {
-    // find parent and compress path
-    return table;
+    if (table != sets[table].parent) {
+      // path compression
+      sets[table].parent = getParent(sets[table].parent);
+    }
+    return sets[table].parent;
   }
 
   void merge(int destination, int source) {
     int realDestination = getParent(destination);
     int realSource = getParent(source);
-    if (realDestination != realSource) {
-      // merge two components
-      // use union by rank heuristic
-      // update max_table_size
+    if (realDestination == realSource) {
+      return;
     }
+    sets[realDestination].size += sets[realSource].size;
+    sets[realSource].parent = realDestination;
+    max_table_size = std::max(max_table_size, sets[realDestination].size);
   }
 };
 
