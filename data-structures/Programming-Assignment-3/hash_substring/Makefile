@@ -2,9 +2,10 @@ GTEST_DIR = /googletest
 
 CXX = g++
 CPPFLAGS += -I$(GTEST_DIR)/googletest/include
-CXXFLAGS += -g -Wall -Wextra -pthread -pipe -O2 -std=c++14
+#CXXFLAGS += -g -Wall -Wextra -pthread -pipe -O2 -std=c++14
+CXXFLAGS += -g -Wall -Wextra -pthread  -std=c++14
 
-LDFLAGS += -L$(GTEST_DIR)/build/googlemock/gtest
+LDFLAGS += -L$(GTEST_DIR)/build/lib
 LDLIBS += -lgtest -lgtest_main -lpthread -lm
 
 TARGET = $(join $(notdir $(shell pwd)), _test.out)
