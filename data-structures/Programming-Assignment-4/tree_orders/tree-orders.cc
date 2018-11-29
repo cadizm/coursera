@@ -27,27 +27,53 @@ class TreeOrders {
     }
   }
 
+  void in_order(int index, vector<int>* result) {
+    if (index < 0 || index > n) {
+      return;
+    }
+
+    in_order(left[index], result);
+    result->push_back(key[index]);
+    in_order(right[index], result);
+  }
+
+  void pre_order(int index, vector<int>* result) {
+    if (index < 0 || index > n) {
+      return;
+    }
+
+    result->push_back(key[index]);
+    pre_order(left[index], result);
+    pre_order(right[index], result);
+  }
+
+  void post_order(int index, vector<int>* result) {
+    if (index < 0 || index > n) {
+      return;
+    }
+
+    post_order(left[index], result);
+    post_order(right[index], result);
+    result->push_back(key[index]);
+  }
 
   vector <int> in_order() {
     vector<int> result;
-    // Finish the implementation
-    // You may need to add a new recursive method to do that
+    in_order(0, &result);
 
     return result;
   }
 
   vector <int> pre_order() {
     vector<int> result;
-    // Finish the implementation
-    // You may need to add a new recursive method to do that
+    pre_order(0, &result);
 
     return result;
   }
 
   vector <int> post_order() {
     vector<int> result;
-    // Finish the implementation
-    // You may need to add a new recursive method to do that
+    post_order(0, &result);
 
     return result;
   }
@@ -73,7 +99,7 @@ int main_with_large_stack_space() {
   return 0;
 }
 
-int main(int argc, char **argv) {
+int main() {
 #if defined(__unix__) || defined(__APPLE__)
   // Allow larger stack space
   const rlim_t kStackSize = 16 * 1024 * 1024;   // min stack size = 16 MB
@@ -95,4 +121,3 @@ int main(int argc, char **argv) {
 
   return main_with_large_stack_space();
 }
-
