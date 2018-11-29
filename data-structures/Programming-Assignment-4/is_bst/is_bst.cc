@@ -18,8 +18,34 @@ struct Node {
   {}
 };
 
+void inorder(int index, const vector<Node>& tree, vector<int>* path) {
+  if (index < 0 || index >= static_cast<int>(tree.size())) {
+    return;
+  }
+
+  inorder(tree[index].left, tree, path);
+  path->push_back(tree[index].key);
+  inorder(tree[index].right, tree, path);
+}
+
+
+// Because it is guaranteed that all keys in Tree tree are unique, tree
+// is a BST if an in order traversal produces a path such that: the key
+// at any given index i is greater than the key at index i + 1, for all
+// indices i >= 0, i < n
 bool IsBinarySearchTree(const vector<Node>& tree) {
-  // Implement correct algorithm here
+  vector<int> path;
+  inorder(0, tree, &path);
+
+  for (size_t i = 0; i < path.size(); ++i) {
+    size_t j = i + 1;
+    if (j == 0 || j >= path.size())
+      break;
+
+    if (path[i] > path[j])
+      return false;
+  }
+
   return true;
 }
 
