@@ -28,7 +28,6 @@ void inorder(int index, const vector<Node>& tree, vector<int>* path) {
   inorder(tree[index].right, tree, path);
 }
 
-
 // Because it is guaranteed that all keys in Tree tree are unique, tree
 // is a BST if an in order traversal produces a path such that: the key
 // at any given index i is greater than the key at index i + 1, for all
