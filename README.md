@@ -1,1 +1,1 @@
-A Coursera workspace
+[Coursera](https://www.coursera.org/) classes
