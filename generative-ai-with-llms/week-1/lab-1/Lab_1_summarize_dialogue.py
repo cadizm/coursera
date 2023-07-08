@@ -77,9 +77,9 @@ from transformers import GenerationConfig
 # <a name='2'></a>
 # ## 2 - Summarize Dialogue without Prompt Engineering
 #
-# In this use case, you will be generating a summary of a dialogue with the pre-trained Large Language Model (LLM) FLAN-T5 from Hugging Face. The list of available models in the Hugging Face `transformers` package can be found [here](https://huggingface.co/docs/transformers/index). 
+# In this use case, you will be generating a summary of a dialogue with the pre-trained Large Language Model (LLM) FLAN-T5 from Hugging Face. The list of available models in the Hugging Face `transformers` package can be found [here](https://huggingface.co/docs/transformers/index).
 #
-# Let's upload some simple dialogues from the [DialogSum](https://huggingface.co/datasets/knkarthick/dialogsum) Hugging Face dataset. This dataset contains 10,000+ dialogues with the corresponding manually labeled summaries and topics. 
+# Let's upload some simple dialogues from the [DialogSum](https://huggingface.co/datasets/knkarthick/dialogsum) Hugging Face dataset. This dataset contains 10,000+ dialogues with the corresponding manually labeled summaries and topics.
 
 # %%
 huggingface_dataset_name = "knkarthick/dialogsum"
@@ -106,8 +106,10 @@ for i, index in enumerate(example_indices):
     print(dash_line)
     print()
 
+print(type(dataset))
+
 # %% [markdown]
-# Load the [FLAN-T5 model](https://huggingface.co/docs/transformers/model_doc/flan-t5), creating an instance of the `AutoModelForSeq2SeqLM` class with the `.from_pretrained()` method. 
+# Load the [FLAN-T5 model](https://huggingface.co/docs/transformers/model_doc/flan-t5), creating an instance of the `AutoModelForSeq2SeqLM` class with the `.from_pretrained()` method.
 
 # %% id="iAYlS40Z3l-v"
 model_name='google/flan-t5-base'
@@ -115,7 +117,7 @@ model_name='google/flan-t5-base'
 model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 
 # %% [markdown] id="sPqQA3TT3l_I"
-# To perform encoding and decoding, you need to work with text in a tokenized form. **Tokenization** is the process of splitting texts into smaller units that can be processed by the LLM models. 
+# To perform encoding and decoding, you need to work with text in a tokenized form. **Tokenization** is the process of splitting texts into smaller units that can be processed by the LLM models.
 #
 # Download the tokenizer for the FLAN-T5 model using `AutoTokenizer.from_pretrained()` method. Parameter `use_fast` switches on fast tokenizer. At this stage, there is no need to go into the details of that, but you can find the tokenizer parameters in the [documentation](https://huggingface.co/docs/transformers/v4.28.1/en/model_doc/auto#transformers.AutoTokenizer).
 
@@ -131,7 +133,7 @@ sentence = "What time is it, Tom?"
 sentence_encoded = tokenizer(sentence, return_tensors='pt')
 
 sentence_decoded = tokenizer.decode(
-        sentence_encoded["input_ids"][0], 
+        sentence_encoded["input_ids"][0],
         skip_special_tokens=True
     )
 
@@ -147,16 +149,16 @@ print(sentence_decoded)
 for i, index in enumerate(example_indices):
     dialogue = dataset['test'][index]['dialogue']
     summary = dataset['test'][index]['summary']
-    
+
     inputs = tokenizer(dialogue, return_tensors='pt')
     output = tokenizer.decode(
         model.generate(
-            inputs["input_ids"], 
+            inputs["input_ids"],
             max_new_tokens=50,
-        )[0], 
+        )[0],
         skip_special_tokens=True
     )
-    
+
     print(dash_line)
     print('Example ', i + 1)
     print(dash_line)
@@ -200,19 +202,19 @@ Summary:
     inputs = tokenizer(prompt, return_tensors='pt')
     output = tokenizer.decode(
         model.generate(
-            inputs["input_ids"], 
+            inputs["input_ids"],
             max_new_tokens=50,
-        )[0], 
+        )[0],
         skip_special_tokens=True
     )
-    
+
     print(dash_line)
     print('Example ', i + 1)
     print(dash_line)
     print(f'INPUT PROMPT:\n{prompt}')
     print(dash_line)
     print(f'BASELINE HUMAN SUMMARY:\n{summary}')
-    print(dash_line)    
+    print(dash_line)
     print(f'MODEL GENERATION - ZERO SHOT:\n{output}\n')
 
 # %% [markdown]
@@ -224,6 +226,38 @@ Summary:
 # - Experiment with the `prompt` text and see how the inferences will be changed. Will the inferences change if you end the prompt with just empty string vs. `Summary: `?
 # - Try to rephrase the beginning of the `prompt` text from `Summarize the following conversation.` to something different - and see how it will influence the generated output.
 
+# %%
+for i, index in enumerate(example_indices):
+    dialogue = dataset['test'][index]['dialogue']
+    summary = dataset['test'][index]['summary']
+
+    prompt = f"""
+Improve the following conversation to make it longer.
+
+{dialogue}
+
+Longer conversation:
+    """
+
+    # Input constructed prompt instead of the dialogue.
+    inputs = tokenizer(prompt, return_tensors='pt')
+    output = tokenizer.decode(
+        model.generate(
+            inputs["input_ids"],
+            max_new_tokens=50,
+        )[0],
+        skip_special_tokens=True
+    )
+
+    print(dash_line)
+    print('Example ', i + 1)
+    print(dash_line)
+    print(f'INPUT PROMPT:\n{prompt}')
+    print(dash_line)
+    print(f'BASELINE HUMAN SUMMARY:\n{summary}')
+    print(dash_line)
+    print(f'MODEL GENERATION - ZERO SHOT:\n{output}\n')
+
 # %% [markdown]
 # <a name='3.2'></a>
 # ### 3.2 - Zero Shot Inference with the Prompt Template from FLAN-T5
@@ -234,7 +268,7 @@ Summary:
 for i, index in enumerate(example_indices):
     dialogue = dataset['test'][index]['dialogue']
     summary = dataset['test'][index]['summary']
-        
+
     prompt = f"""
 Dialogue:
 
@@ -246,9 +280,9 @@ What was going on?
     inputs = tokenizer(prompt, return_tensors='pt')
     output = tokenizer.decode(
         model.generate(
-            inputs["input_ids"], 
+            inputs["input_ids"],
             max_new_tokens=50,
-        )[0], 
+        )[0],
         skip_special_tokens=True
     )
 
@@ -275,7 +309,7 @@ What was going on?
 # <a name='4.1'></a>
 # ### 4.1 - One Shot Inference
 #
-# Let's build a function that takes a list of `example_indices_full`, generates a prompt with full examples, then at the end appends the prompt which you want the model to complete (`example_index_to_summarize`).  You will use the same FLAN-T5 prompt template from section [3.2](#3.2). 
+# Let's build a function that takes a list of `example_indices_full`, generates a prompt with full examples, then at the end appends the prompt which you want the model to complete (`example_index_to_summarize`).  You will use the same FLAN-T5 prompt template from section [3.2](#3.2).
 
 # %%
 def make_prompt(example_indices_full, example_index_to_summarize):
@@ -283,7 +317,7 @@ def make_prompt(example_indices_full, example_index_to_summarize):
     for index in example_indices_full:
         dialogue = dataset['test'][index]['dialogue']
         summary = dataset['test'][index]['summary']
-        
+
         # The stop sequence '{summary}\n\n\n' is important for FLAN-T5. Other models may have their own preferred stop sequence.
         prompt += f"""
 Dialogue:
@@ -295,9 +329,9 @@ What was going on?
 
 
 """
-    
+
     dialogue = dataset['test'][example_index_to_summarize]['dialogue']
-    
+
     prompt += f"""
 Dialogue:
 
@@ -305,7 +339,7 @@ Dialogue:
 
 What was going on?
 """
-        
+
     return prompt
 
 
@@ -331,7 +365,7 @@ output = tokenizer.decode(
     model.generate(
         inputs["input_ids"],
         max_new_tokens=50,
-    )[0], 
+    )[0],
     skip_special_tokens=True
 )
 
@@ -365,7 +399,7 @@ output = tokenizer.decode(
     model.generate(
         inputs["input_ids"],
         max_new_tokens=50,
-    )[0], 
+    )[0],
     skip_special_tokens=True
 )
 
@@ -393,24 +427,24 @@ print(f'MODEL GENERATION - FEW SHOT:\n{output}')
 # ## 5 - Generative Configuration Parameters for Inference
 
 # %% [markdown]
-# You can change the configuration parameters of the `generate()` method to see a different output from the LLM. So far the only parameter that you have been setting was `max_new_tokens=50`, which defines the maximum number of tokens to generate. A full list of available parameters can be found in the [Hugging Face Generation documentation](https://huggingface.co/docs/transformers/v4.29.1/en/main_classes/text_generation#transformers.GenerationConfig). 
+# You can change the configuration parameters of the `generate()` method to see a different output from the LLM. So far the only parameter that you have been setting was `max_new_tokens=50`, which defines the maximum number of tokens to generate. A full list of available parameters can be found in the [Hugging Face Generation documentation](https://huggingface.co/docs/transformers/v4.29.1/en/main_classes/text_generation#transformers.GenerationConfig).
 #
-# A convenient way of organizing the configuration parameters is to use `GenerationConfig` class. 
+# A convenient way of organizing the configuration parameters is to use `GenerationConfig` class.
 
 # %% [markdown]
 # **Exercise:**
 #
-# Change the configuration parameters to investigate their influence on the output. 
+# Change the configuration parameters to investigate their influence on the output.
 #
-# Putting the parameter `do_sample = True`, you activate various decoding strategies which influence the next token from the probability distribution over the entire vocabulary. You can then adjust the outputs changing `temperature` and other parameters (such as `top_k` and `top_p`). 
+# Putting the parameter `do_sample = True`, you activate various decoding strategies which influence the next token from the probability distribution over the entire vocabulary. You can then adjust the outputs changing `temperature` and other parameters (such as `top_k` and `top_p`).
 #
 # Uncomment the lines in the cell below and rerun the code. Try to analyze the results. You can read some comments below.
 
 # %%
-generation_config = GenerationConfig(max_new_tokens=50)
+# generation_config = GenerationConfig(max_new_tokens=50)
 # generation_config = GenerationConfig(max_new_tokens=10)
 # generation_config = GenerationConfig(max_new_tokens=50, do_sample=True, temperature=0.1)
-# generation_config = GenerationConfig(max_new_tokens=50, do_sample=True, temperature=0.5)
+generation_config = GenerationConfig(max_new_tokens=50, do_sample=True, temperature=0.5)
 # generation_config = GenerationConfig(max_new_tokens=50, do_sample=True, temperature=1.0)
 
 inputs = tokenizer(few_shot_prompt, return_tensors='pt')
@@ -418,7 +452,7 @@ output = tokenizer.decode(
     model.generate(
         inputs["input_ids"],
         generation_config=generation_config,
-    )[0], 
+    )[0],
     skip_special_tokens=True
 )
 
