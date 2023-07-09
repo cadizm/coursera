@@ -9,3 +9,4 @@
 - [Few-shot learning in practice: GPT-Neo and the 🤗 Accelerated Inference API](https://huggingface.co/blog/few-shot-learning-gpt-neo-and-inference-api)
 - [Hugging Face Transformers GenerationConfig](https://huggingface.co/docs/transformers/v4.29.1/en/main_classes/text_generation#transformers.GenerationConfig)
 - [Jupytext](https://github.com/mwouts/jupytext)
+- [BloombergGPT: A Large Language Model for Finance](./bloomberg-gpt-a-large-language-model-for-finance.pdf)
