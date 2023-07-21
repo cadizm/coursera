@@ -78,7 +78,7 @@
 # <img src="data:image/svg+xml;base64,Cjxzdmcgd2lkdGg9IjgwMCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDgwMCA1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZmFkZUdyYWRpZW50IiB4MT0iMCIgeDI9IjEiPgogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjBGMEYwIi8+CiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0YwRjBGMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICAgICAgPC9saW5lYXJHcmFkaWVudD4KICAgICAgICA8bWFzayBpZD0iZmFkZU1hc2siPgogICAgICAgICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNzUwIiBoZWlnaHQ9IjUwIiBmaWxsPSJ3aGl0ZSIvPgogICAgICAgICAgICA8cmVjdCB4PSI3NTAiIHk9IjAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0idXJsKCNmYWRlR3JhZGllbnQpIi8+CiAgICAgICAgPC9tYXNrPgogICAgPC9kZWZzPgogICAgPHBhdGggZD0iTTI1LDUwIFEwLDUwIDAsMjUgTDUwLDMgTDk3LDI1IEw3OTcsMjUgTDc5Nyw1MCBMMjUsNTAgWiIgZmlsbD0iI0YwRjBGMCIgc3Ryb2tlPSIjRTBFMEUwIiBzdHJva2Utd2lkdGg9IjEiIG1hc2s9InVybCgjZmFkZU1hc2spIi8+Cjwvc3ZnPgo=" alt="Time alert close"/>
 
 # %% [markdown]
-# Import the necessary components. Some of them are new for this week, they will be discussed later in the notebook. 
+# Import the necessary components. Some of them are new for this week, they will be discussed later in the notebook.
 
 # %%
 from datasets import load_dataset
@@ -93,7 +93,7 @@ import numpy as np
 # <a name='1.2'></a>
 # ### 1.2 - Load Dataset and LLM
 #
-# You are going to continue experimenting with the [DialogSum](https://huggingface.co/datasets/knkarthick/dialogsum) Hugging Face dataset. It contains 10,000+ dialogues with the corresponding manually labeled summaries and topics. 
+# You are going to continue experimenting with the [DialogSum](https://huggingface.co/datasets/knkarthick/dialogsum) Hugging Face dataset. It contains 10,000+ dialogues with the corresponding manually labeled summaries and topics.
 
 # %%
 huggingface_dataset_name = "knkarthick/dialogsum"
@@ -113,7 +113,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 
 # %% [markdown]
-# It is possible to pull out the number of model parameters and find out how many of them are trainable. The following function can be used to do that, at this stage, you do not need to go into details of it. 
+# It is possible to pull out the number of model parameters and find out how many of them are trainable. The following function can be used to do that, at this stage, you do not need to go into details of it.
 
 # %%
 def print_number_of_trainable_model_parameters(model):
@@ -150,9 +150,9 @@ Summary:
 inputs = tokenizer(prompt, return_tensors='pt')
 output = tokenizer.decode(
     original_model.generate(
-        inputs["input_ids"], 
+        inputs["input_ids"],
         max_new_tokens=200,
-    )[0], 
+    )[0],
     skip_special_tokens=True
 )
 
@@ -181,8 +181,8 @@ print(f'MODEL GENERATION - ZERO SHOT:\n{output}')
 #
 #     Chris: This is his part of the conversation.
 #     Antje: This is her part of the conversation.
-#     
-# Summary: 
+#
+# Summary:
 # ```
 #
 # Training response (summary):
@@ -199,7 +199,7 @@ def tokenize_function(example):
     prompt = [start_prompt + dialogue + end_prompt for dialogue in example["dialogue"]]
     example['input_ids'] = tokenizer(prompt, padding="max_length", truncation=True, return_tensors="pt").input_ids
     example['labels'] = tokenizer(example["summary"], padding="max_length", truncation=True, return_tensors="pt").input_ids
-    
+
     return example
 
 # The dataset actually contains 3 diff splits: train, validation, test.
@@ -350,9 +350,9 @@ Summary: """
     instruct_model_outputs = instruct_model.generate(input_ids=input_ids, generation_config=GenerationConfig(max_new_tokens=200))
     instruct_model_text_output = tokenizer.decode(instruct_model_outputs[0], skip_special_tokens=True)
     instruct_model_summaries.append(instruct_model_text_output)
-    
+
 zipped_summaries = list(zip(human_baseline_summaries, original_model_summaries, instruct_model_summaries))
- 
+
 df = pd.DataFrame(zipped_summaries, columns = ['human_baseline_summaries', 'original_model_summaries', 'instruct_model_summaries'])
 df
 
@@ -422,9 +422,9 @@ for key, value in zip(instruct_model_results.keys(), improvement):
 # <a name='3'></a>
 # ## 3 - Perform Parameter Efficient Fine-Tuning (PEFT)
 #
-# Now, let's perform **Parameter Efficient Fine-Tuning (PEFT)** fine-tuning as opposed to "full fine-tuning" as you did above. PEFT is a form of instruction fine-tuning that is much more efficient than full fine-tuning - with comparable evaluation results as you will see soon. 
+# Now, let's perform **Parameter Efficient Fine-Tuning (PEFT)** fine-tuning as opposed to "full fine-tuning" as you did above. PEFT is a form of instruction fine-tuning that is much more efficient than full fine-tuning - with comparable evaluation results as you will see soon.
 #
-# PEFT is a generic term that includes **Low-Rank Adaptation (LoRA)** and prompt tuning (which is NOT THE SAME as prompt engineering!). In most cases, when someone says PEFT, they typically mean LoRA. LoRA, at a very high level, allows the user to fine-tune their model using fewer compute resources (in some cases, a single GPU). After fine-tuning for a specific task, use case, or tenant with LoRA, the result is that the original LLM remains unchanged and a newly-trained “LoRA adapter” emerges. This LoRA adapter is much, much smaller than the original LLM - on the order of a single-digit % of the original LLM size (MBs vs GBs).  
+# PEFT is a generic term that includes **Low-Rank Adaptation (LoRA)** and prompt tuning (which is NOT THE SAME as prompt engineering!). In most cases, when someone says PEFT, they typically mean LoRA. LoRA, at a very high level, allows the user to fine-tune their model using fewer compute resources (in some cases, a single GPU). After fine-tuning for a specific task, use case, or tenant with LoRA, the result is that the original LLM remains unchanged and a newly-trained “LoRA adapter” emerges. This LoRA adapter is much, much smaller than the original LLM - on the order of a single-digit % of the original LLM size (MBs vs GBs).
 #
 # That said, at inference time, the LoRA adapter needs to be reunited and combined with its original LLM to serve the inference request.  The benefit, however, is that many LoRA adapters can re-use the original LLM which reduces overall memory requirements when serving multiple tasks and use cases.
 
@@ -450,7 +450,7 @@ lora_config = LoraConfig(
 # Add LoRA adapter layers/parameters to the original LLM to be trained.
 
 # %%
-peft_model = get_peft_model(original_model, 
+peft_model = get_peft_model(original_model,
                             lora_config)
 print(print_number_of_trainable_model_parameters(peft_model))
 
@@ -469,9 +469,9 @@ peft_training_args = TrainingArguments(
     learning_rate=1e-3, # Higher learning rate than full fine-tuning.
     num_train_epochs=1,
     logging_steps=1,
-    max_steps=1    
+    max_steps=1
 )
-    
+
 peft_trainer = Trainer(
     model=peft_model,
     args=peft_training_args,
@@ -498,7 +498,7 @@ tokenizer.save_pretrained(peft_model_path)
 # That training was performed on a subset of data. To load a fully trained PEFT model, read a checkpoint of a PEFT model from S3.
 
 # %%
-# !aws s3 cp --recursive s3://dlai-generative-ai/models/peft-dialogue-summary-checkpoint/ ./peft-dialogue-summary-checkpoint-from-s3/ 
+# !aws s3 cp --recursive s3://dlai-generative-ai/models/peft-dialogue-summary-checkpoint/ ./peft-dialogue-summary-checkpoint-from-s3/
 
 # %% [markdown]
 # Check that the size of this model is much less than the original LLM:
@@ -515,8 +515,8 @@ from peft import PeftModel, PeftConfig
 peft_model_base = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-base", torch_dtype=torch.bfloat16)
 tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-base")
 
-peft_model = PeftModel.from_pretrained(peft_model_base, 
-                                       './peft-dialogue-summary-checkpoint-from-s3/', 
+peft_model = PeftModel.from_pretrained(peft_model_base,
+                                       './peft-dialogue-summary-checkpoint-from-s3/',
                                        torch_dtype=torch.bfloat16,
                                        is_trainable=False)
 
@@ -567,7 +567,7 @@ print(f'PEFT MODEL: {peft_model_text_output}')
 # %% [markdown]
 # <a name='3.4'></a>
 # ### 3.4 - Evaluate the Model Quantitatively (with ROUGE Metric)
-# Perform inferences for the sample of the test dataset (only 10 dialogues and summaries to save time). 
+# Perform inferences for the sample of the test dataset (only 10 dialogues and summaries to save time).
 
 # %%
 dialogues = dataset['test'][0:10]['dialogue']
@@ -584,11 +584,11 @@ Summarize the following conversation.
 {dialogue}
 
 Summary: """
-    
+
     input_ids = tokenizer(prompt, return_tensors="pt").input_ids
 
     human_baseline_text_output = human_baseline_summaries[idx]
-    
+
     original_model_outputs = original_model.generate(input_ids=input_ids, generation_config=GenerationConfig(max_new_tokens=200))
     original_model_text_output = tokenizer.decode(original_model_outputs[0], skip_special_tokens=True)
 
@@ -603,12 +603,12 @@ Summary: """
     peft_model_summaries.append(peft_model_text_output)
 
 zipped_summaries = list(zip(human_baseline_summaries, original_model_summaries, instruct_model_summaries, peft_model_summaries))
- 
+
 df = pd.DataFrame(zipped_summaries, columns = ['human_baseline_summaries', 'original_model_summaries', 'instruct_model_summaries', 'peft_model_summaries'])
 df
 
 # %% [raw]
-# Compute ROUGE score for this subset of the data. 
+# Compute ROUGE score for this subset of the data.
 
 # %%
 rouge = evaluate.load('rouge')

@@ -232,5 +232,3 @@ duplicating the entire model for each new task you want to perform fine-tuning.
 Computational constraints: because most parameters are frozen, we typically only need to train
 15%-20% of the original LLM weights, making the training process less expensive (less memory
 required)
-
-
