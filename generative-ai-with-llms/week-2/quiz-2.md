@@ -1,0 +1,5 @@
+![q2-1](images/q2-1.png)
+![q2-2](images/q2-2.png)
+![q2-3](images/q2-3.png)
+![q2-4](images/q2-4.png)
+![q2-5](images/q2-5.png)
