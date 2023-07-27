@@ -226,3 +226,11 @@ task-solving scenarios.
 ## AWS SageMaker JumpStart
 
 [SageMaker JumpStart](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-jumpstart.html)
+
+## Responsible AI
+
+[Transcript](./transcripts/20-responsible-ai.txt)
+
+## Conclusion
+
+[Transcript](./transcripts/)
